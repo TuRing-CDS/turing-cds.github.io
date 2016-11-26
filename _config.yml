@@ -1,7 +1,7 @@
 # Site settings
-title: Solo, a Jekyll Theme
-tag_text: Solo
-description: Solo is a Jekyll theme that supports single-page websites only, but supports them well. Yes, it’s responsive.
+title: 图灵金融·CDS研究所
+tag_text: CDS·Team
+description: 图灵金融，CDS团队。
 
 # Build settings
 markdown: kramdown

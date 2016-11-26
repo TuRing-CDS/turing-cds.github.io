@@ -1,5 +1,9 @@
-# Solo 
+# About TuRing-CDS
 
-[Solo](http://chibicode.github.io/solo) is a Jekyll theme that supports **single-page websites** only, but supports them well. Yes, it's responsive.
+![logo](./images/logo.png)
 
-### [Demo & Documentation &rarr;](http://chibicode.github.io/solo)
+## C`ode`
+
+## D`ata`
+
+## S`trategy`
