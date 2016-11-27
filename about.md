@@ -1,11 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
----
-
----
-layout: default
+permalink: /about
 ---
 
 **C**ode
