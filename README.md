@@ -1,6 +1,6 @@
 # About TuRing-CDS
 
-![logo](./images/logo.png)
+![logo](assets/logo.png)
 
 ## C`ode`
 
