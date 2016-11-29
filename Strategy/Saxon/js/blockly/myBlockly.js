@@ -54,7 +54,7 @@ var blockly = {
 			}
 			$.ajax({
 				type:"GET",
-				url:'common/result.json',
+				url:'Strategy/Saxon/common/result.json',
 				datatype:"json",
 				async:false,
 				success:function(data){
