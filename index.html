@@ -13,10 +13,10 @@ layout: default
       <span class="card-title">Posts</span>
 
       <ul class="post-list">
-        {% for post in site.posts %}
+        {% for team in site.data.team %}
           <li>
-            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>            
+            <span class="post-meta">{{ team.name | date: "%b %-d, %Y" }}</span>
+            <a class="post-link" href="{{ team.url | prepend: site.baseurl }}">{{ post.title }}</a>
           </li>
         {% endfor %}
       </ul>

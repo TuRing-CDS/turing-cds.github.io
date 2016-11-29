@@ -1,0 +1,11 @@
+- name: Tema-C
+  title: Code
+  url: /code
+
+- name: Team-D
+  title: Data
+  url: /data
+
+- name: Team-S
+  title: Strategy
+  url: /strategy
