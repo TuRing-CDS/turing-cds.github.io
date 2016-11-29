@@ -1,7 +1,7 @@
 var blockly = {
 		URL:{
-			resultUrl:function(){
-				return "http://120.76.41.101:8080/SpringBoot/findFieldsWithObjList";
+			resultUrl:function(){//120.76.41.101
+				return "http://localhost/SpringBoot/findFieldsWithObjList";
 			}
 		},
 		/**
@@ -54,7 +54,7 @@ var blockly = {
 			}
 			$.ajax({
 				type:"GET",
-				url:'/common/result.json',
+				url:'common/result.json',
 				datatype:"json",
 				async:false,
 				success:function(data){
@@ -150,27 +150,56 @@ var blockly = {
 		findOperationResult:function(code){
 			$("#modal-body").html("<img src='images/20140928103818165.gif'/>");
 			var tbody = [];
-			$.getJSON(blockly.URL.resultUrl(),{"param":code},function(data){
-				$("#modal-body").html("");
-				var array = eval(data);
-				for (var i = 0; i < array.length; i++) {
-					var stk = array[i];
-					
-					var STOCKSNAME = stk.STOCKSNAME;
-					var STOCKCODE = stk.STOCKCODE;
-					var TRADE_MKT = stk.TRADE_MKT;
-					var COMCODE = stk.COMCODE;
-					var operationResult = stk.operationResult;
-					var tr = "<tr><td>"+STOCKSNAME+"</td><td>"+STOCKCODE+"</td><td>"+TRADE_MKT+"</td><td>"+COMCODE+"</td><td>"+operationResult+"</td></tr>"
-					tbody.push(tr);
-					//$("#modal-body").append(p);
-				}
-				var table = "<table class='table table-striped table-hover'>"+
-							"<thead><tr><th>股票简称</th><th>证券代码</th><th>交易市场</th><th>公司代码</th><th>运算结果</th></tr></thead>"+
-							tbody.join("")+
-							"</table>";
-				$("#modal-body").html(table);
-			});
+			$.ajax({
+				url:blockly.URL.resultUrl()+"?param="+code+"&callback=?",
+				dataType:"jsonp",
+				method:"GET",
+				success:function (data) {
+					console.log(data);
+                    $("#modal-body").html("");
+                    var array = eval(data);
+                    for (var i = 0; i < array.length; i++) {
+                        var stk = array[i];
+                        var STOCKSNAME = stk.STOCKSNAME;
+                        var STOCKCODE = stk.STOCKCODE;
+                        var TRADE_MKT = stk.TRADE_MKT;
+                        var COMCODE = stk.COMCODE;
+                        var operationResult = stk.operationResult;
+                        var tr = "<tr><td>"+STOCKSNAME+"</td><td>"+STOCKCODE+"</td><td>"+TRADE_MKT+"</td><td>"+COMCODE+"</td><td>"+operationResult+"</td></tr>"
+                        tbody.push(tr);
+                        //$("#modal-body").append(p);
+                    }
+                    var table = "<table class='table table-striped table-hover'>"+
+                        "<thead><tr><th>股票简称</th><th>证券代码</th><th>交易市场</th><th>公司代码</th><th>运算结果</th></tr></thead>"+
+                        tbody.join("")+
+                        "</table>";
+                    $("#modal-body").html(table);
+                },
+				error:function (error) {
+					alert('失败');
+                }
+			})
+			/*$.getJSON(blockly.URL.resultUrl()+"?param="+code+"&callback=?",function(data){
+                alert(data);
+                $("#modal-body").html("");
+                var array = eval(data);
+                for (var i = 0; i < array.length; i++) {
+                    var stk = array[i];
+                    var STOCKSNAME = stk.STOCKSNAME;
+                    var STOCKCODE = stk.STOCKCODE;
+                    var TRADE_MKT = stk.TRADE_MKT;
+                    var COMCODE = stk.COMCODE;
+                    var operationResult = stk.operationResult;
+                    var tr = "<tr><td>"+STOCKSNAME+"</td><td>"+STOCKCODE+"</td><td>"+TRADE_MKT+"</td><td>"+COMCODE+"</td><td>"+operationResult+"</td></tr>"
+                    tbody.push(tr);
+                    //$("#modal-body").append(p);
+                }
+                var table = "<table class='table table-striped table-hover'>"+
+                    "<thead><tr><th>股票简称</th><th>证券代码</th><th>交易市场</th><th>公司代码</th><th>运算结果</th></tr></thead>"+
+                    tbody.join("")+
+                    "</table>";
+                $("#modal-body").html(table);
+			});*/
 		}
 }
 
