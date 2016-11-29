@@ -150,7 +150,7 @@ var blockly = {
 		findOperationResult:function(code){
 			$("#modal-body").html("<img src='images/20140928103818165.gif'/>");
 			var tbody = [];
-			$.get(blockly.URL.resultUrl(),{"param":code},function(data){
+			$.getJSON(blockly.URL.resultUrl(),{"param":code},function(data){
 				$("#modal-body").html("");
 				var array = eval(data);
 				for (var i = 0; i < array.length; i++) {
