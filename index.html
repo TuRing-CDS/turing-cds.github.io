@@ -16,7 +16,7 @@ layout: default
         {% for team in site.data.team %}
           <li>
             <span class="post-meta">{{ team.name | date: "%b %-d, %Y" }}</span>
-            <a class="post-link" href="{{ team.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            <a class="post-link" href="{{ team.url | prepend: site.baseurl }}">{{ team.title }}</a>
           </li>
         {% endfor %}
       </ul>
