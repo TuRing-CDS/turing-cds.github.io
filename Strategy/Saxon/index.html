@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        html,body{margin: 0px;padding: 0px;height: 100%;width: 100% background-color: #fff;font-family: sans-serif;}
+        #run{ position:fixed;right:0;width:100px;height:100px;z-index:999;background:rgba(0,0,0,0.5);line-height:100px; text-align:center;cursor: pointer;}
+    </style>
+    <script src="js/blockly/blockly_compressed.js"></script>
+    <script src="js/blockly/blocks_compressed.js"></script>
+    <script src="js/blockly/javascript_compressed.js"></script>
+    <script type="text/javascript">
+        $(function () { $('#myModal').on('show.bs.modal', function () {
+            blockly.centerModals();
+        });
+        });
+    </script>
+    <include src="head.html"></include>
+</head>
+<body>
+<xml id="toolbox" style="display:none">
+    <category id ="stock" name="财务"></category>
+    <category id="strategy" name="策略"></category>
+</xml>
+<span id="run" data-toggle="modal" data-target="#myModal">RUN</span>
+<div id="blocklyDiv" style="height: 100%; width: 100%; background-color: #f4f4f4"></div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel" style="color:#000000">得到的结果是</h4>
+            </div>
+            <div class="modal-body" id="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- /.modal -->
+
+</body>
+<script>
+    blockly.initBlockly();
+    var workspace = Blockly.inject('blocklyDiv', {toolbox : document.getElementById('toolbox')});
+    $("#run").click(function(){
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        try {
+            if(code!=null && code!=''){
+                blockly.findOperationResult(code);
+                console.log(code);
+            }else{
+                alert("请选择后运算");
+            }
+        } catch (e) {
+            alert(e)
+        }
+    });
+</script>
+</html>
