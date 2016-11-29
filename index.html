@@ -3,26 +3,28 @@ layout: default
 ---
 
 <div class="home">
- <div class="top card">
-    <a class="email" href="mailto:{{site.email}}">{{site.email}}</a>
-    <p class="description">{{ site.description }}</p>
-    <a href="about" class="btn">Read More</a>
-  </div>
-  <div class="posts card">
-      <div class="card-content white-text">
-      <span class="card-title">Teams</span>
+    <!--<div class="top card">-->
+    <!--<a href="tools" class="btn">Tools</a>-->
+    <!--&lt;!&ndash;<a class="email" href="mailto:{{site.email}}">{{site.email}}</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;<p class="description">{{ site.description }}</p>&ndash;&gt;-->
+    <!--&lt;!&ndash;<a href="about" class="btn">Read More</a>&ndash;&gt;-->
+    <!--</div>-->
+    <div class="posts card">
+        <div class="card-content white-text">
+            <span class="card-title">Teams</span>
 
-      <ul class="post-list">
-        {% for team in site.data.team %}
-          <li>
-            <span class="post-meta">{{ team.name | date: "%b %-d, %Y" }}</span>
-            <a class="post-link" href="{{ team.url | prepend: site.baseurl }}">{{ team.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
+            <ul class="post-list">
+                {% for team in site.data.team %}
+                <li>
+                    <span class="post-meta">{{ team.name | date: "%b %-d, %Y" }}</span>
+                    <a class="post-link" href="{{ team.url | prepend: site.baseurl }}">{{ team.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
 
-      <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-      </div>
-   </div>
+            <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+            <a href="tools" class="btn">Tools</a>
+        </div>
+    </div>
 
 </div>
