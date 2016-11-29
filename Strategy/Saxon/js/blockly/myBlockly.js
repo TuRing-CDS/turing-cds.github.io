@@ -54,7 +54,7 @@ var blockly = {
 			}
 			$.ajax({
 				type:"GET",
-				url:'../../common/result.json',
+				url:'/common/result.json',
 				datatype:"json",
 				async:false,
 				success:function(data){
