@@ -1,7 +1,7 @@
 var blockly = {
 		URL:{
 			resultUrl:function(){//120.76.41.101
-				return "http://localhost/SpringBoot/findFieldsWithObjList";
+				return "http://120.76.41.101:8080/SpringBoot/findFieldsWithObjList";
 			}
 		},
 		/**
@@ -174,9 +174,8 @@ var blockly = {
                         tbody.join("")+
                         "</table>";
                     $("#modal-body").html(table);
-                },
-				error:function (error) {
-					alert('失败');
+                },error:function (error) {
+					alert('获取数据失败');
                 }
 			})
 		}
