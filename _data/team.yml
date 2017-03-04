@@ -1,10 +1,10 @@
 - name: Team-C
   title: Code
-  url: /code
+  url: http://quant.tuling.me
 
 - name: Team-D
   title: Data
-  url: /data
+  url: http://139.199.225.151/DataMonitor/indexD.html
 
 - name: Team-S
   title: Strategy
